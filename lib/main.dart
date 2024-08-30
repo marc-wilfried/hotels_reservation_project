@@ -66,7 +66,7 @@ class _SearchSectionState extends State<SearchSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 150,
       color: Colors.grey[300],
       child: Padding(
         padding: const EdgeInsets.only(top : 20, left: 10, right: 10, bottom: 20),
@@ -80,6 +80,13 @@ class _SearchSectionState extends State<SearchSection> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade300,
+                        blurRadius: 4,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
                   ),
                   child: const TextField(
                     decoration: InputDecoration(
@@ -96,11 +103,67 @@ class _SearchSectionState extends State<SearchSection> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: dGreen,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade300,
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
                   ),
                   child: IconButton(onPressed: (){}, icon: const Icon(Icons.search), color: Colors.white,),
                 ),
               ],
             ),
+            SizedBox(height: 7,),
+            Padding(
+              padding: EdgeInsets.only(left: 7, right: 7),
+              child: Row(
+                children: [
+                  Text(
+                    'Choose date',
+                    style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
+                  SizedBox( width: 110,),
+                  Text(
+                    'Number of Rooms',
+                    style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
+
+                ],
+              ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 7, right: 7),
+                child: Row(
+                  children: [
+                    Text(
+                      '12 DEC - 22 DEC',
+                      style: GoogleFonts.nunito(
+                      fontSize: 13,
+                      ),
+                    ),
+                    SizedBox( width: 85,),
+                    Text(
+                      '1 Room - 2 Adults',
+                      style: GoogleFonts.nunito(
+                      fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
           ],
         ),
       ),
