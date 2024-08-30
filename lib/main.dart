@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,10 +44,12 @@ class MyApp extends StatelessWidget {
 
           ],
         ) ,
-        body: const SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               SearchSection(),
+              SizedBox(height: 5,),
+              ViewHotelsSection(),
             ],
           ),
         ),
@@ -134,7 +137,7 @@ class _SearchSectionState extends State<SearchSection> {
                     style: GoogleFonts.nunito(
                       fontWeight: FontWeight.w400,
                       color: Colors.grey,
-                      fontSize: 14,
+                      fontSize: 15,
                     ),
                   ),
 
@@ -170,3 +173,103 @@ class _SearchSectionState extends State<SearchSection> {
     );
   }
 }
+
+var listHotels = [
+
+    {
+      'title': 'Grand Royl Hotel',
+      'place': 'wembley, London',
+      'distance': 2,
+      'review': 36,
+      'picture': 'images/hotel_1.png',
+      'price': '180',
+
+    },
+    {
+      'title': 'Queen Hotel',
+      'place': 'wembley, London',
+      'distance': 3,
+      'review': 13,
+      'picture': 'images/hotel_2.png',
+      'price': '220',
+    },
+    {
+      'title': 'Grand Mal Hotel',
+      'place': 'wembley, London',
+      'distance': 6,
+      'review': 88,
+      'picture': 'images/hotel_3.png',
+      'price': '400',
+    },
+    {
+      'title': 'Hilton',
+      'place': 'wembley, London',
+      'distance': 11,
+      'review': 34,
+      'picture': 'images/hotel_4.png',
+      'price': '910',
+    }
+
+  ];
+
+class ViewHotelsSection extends StatefulWidget {
+  const ViewHotelsSection({super.key});
+
+  
+
+  @override
+  State<ViewHotelsSection> createState() => _ViewHotelsSectionState();
+}
+
+class _ViewHotelsSectionState extends State<ViewHotelsSection> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 17, right: 17),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                '550 hotels founds',
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+              ),
+              Spacer(),
+              Text(
+                'Filters',
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+              ),
+              IconButton(
+                onPressed: (){}, 
+                icon: Icon(
+                  Icons.filter_list_outlined,
+                  color: dGreen,
+                  size: 20 ,
+                  ),
+                ),
+            ],
+          ),
+          Column(
+            children: [
+              Card(
+                color: Colors.black,
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+
+              ),
+            ],
+          ),
+        ],
+      ),
+      );
+  }
+}
+
