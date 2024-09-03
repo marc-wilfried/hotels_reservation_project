@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -174,14 +173,14 @@ class _SearchSectionState extends State<SearchSection> {
   }
 }
 
-var listHotels = [
+final List listHotels = [
 
     {
       'title': 'Grand Royl Hotel',
       'place': 'wembley, London',
       'distance': 2,
       'review': 36,
-      'picture': 'images/hotel_1.png',
+      'picture': 'assets/hotel_1.png',
       'price': '180',
 
     },
@@ -190,7 +189,7 @@ var listHotels = [
       'place': 'wembley, London',
       'distance': 3,
       'review': 13,
-      'picture': 'images/hotel_2.png',
+      'picture': 'assets/hotel_2.png',
       'price': '220',
     },
     {
@@ -198,7 +197,7 @@ var listHotels = [
       'place': 'wembley, London',
       'distance': 6,
       'review': 88,
-      'picture': 'images/hotel_3.png',
+      'picture': 'assets/hotel_3.png',
       'price': '400',
     },
     {
@@ -206,7 +205,7 @@ var listHotels = [
       'place': 'wembley, London',
       'distance': 11,
       'review': 34,
-      'picture': 'images/hotel_4.png',
+      'picture': 'assets/hotel_4.png',
       'price': '910',
     }
 
@@ -256,17 +255,13 @@ class _ViewHotelsSectionState extends State<ViewHotelsSection> {
             ],
           ),
           Column(
-            children: [
-              Card(
-                color: Colors.black,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-
-              ),
-            ],
-          ),
+            children: listHotels.map((hotel) {
+                return Container(
+                  //child: Text(hotel['title']),
+                  child: Image.asset(hotel['picture']),
+                );
+            }).toList(),
+),
         ],
       ),
       );
