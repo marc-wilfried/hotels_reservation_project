@@ -257,11 +257,144 @@ class _ViewHotelsSectionState extends State<ViewHotelsSection> {
           Column(
             children: listHotels.map((hotel) {
                 return Container(
-                  //child: Text(hotel['title']),
-                  child: Image.asset(hotel['picture']),
+                  margin: EdgeInsets.only(bottom: 10),
+                  height: 230,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade200,
+                        spreadRadius: 4,
+                        blurRadius: 6,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                    borderRadius:  BorderRadius.all(
+                      Radius.circular(18),
+                    ),
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 140,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(18),
+                            topRight: Radius.circular(18),
+                          ),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              hotel['picture'],
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Column(
+                          children: [
+                            Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                hotel['title'],
+                                style: GoogleFonts.nunito(
+                                  fontSize : 17,
+                                  fontWeight : FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "\$${hotel['price']}",
+                                style: GoogleFonts.nunito(
+                                  fontSize : 17,
+                                  fontWeight : FontWeight.bold,
+                                ),
+                              ),
+                            ]
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                hotel['place'],
+                                style: GoogleFonts.nunito(
+                                  fontSize : 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.place,
+                                    size: 10,
+                                    color: dGreen,
+                                  ),
+                                  Text(
+                                  '${hotel['distance']}km to city',
+                                  style: GoogleFonts.nunito(
+                                    fontSize : 12,
+                                    color: Colors.grey,
+                                  ),
+                              ),
+                                ],
+                              ),
+                              Text(
+                                "/per night",
+                                style: GoogleFonts.nunito(
+                                  fontSize : 12,
+                                  fontWeight : FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star_rate,
+                                color: dGreen,
+                                size: 14.0,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: dGreen,
+                                size: 14.0,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: dGreen,
+                                size: 14.0,
+                              ),
+                              Icon(
+                                Icons.star_rate,
+                                color: dGreen,
+                                size: 14.0,
+                              ),
+                              Icon(
+                                Icons.star_border,
+                                color: dGreen,
+                                size: 14.0,
+                              ),
+                              SizedBox(width: 15,),
+                              Text(
+                                '${hotel['review']} reviews',
+                                style: GoogleFonts.nunito(
+                                  fontSize : 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                          ],
+                          ),
+                        ],
+                        ),
+                      ),
+                    ],
+                  ), 
                 );
             }).toList(),
-),
+          ),
         ],
       ),
       );
