@@ -52,6 +52,33 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+                selectedItemColor: Colors.grey[600],
+                items: [
+                    BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.search,
+                      color: dGreen, 
+                    ),
+                    label: 'Explore'
+                  ),
+                    BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.favorite_border_outlined,
+                      color: dGreen,
+                    ),
+                    label: 'Tips', // Ajout du label
+                  ),
+                    BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.person,
+                      color: dGreen,
+                    ),
+                    label: 'Profile', // Ajout du label
+                  ),
+                ],
+              ),
       ),
     );
   }
@@ -269,7 +296,7 @@ class _ViewHotelsSectionState extends State<ViewHotelsSection> {
                         offset: Offset(0, 3),
                       ),
                     ],
-                    borderRadius:  BorderRadius.all(
+                    borderRadius: BorderRadius.all(
                       Radius.circular(18),
                     ),
                     color: Colors.white,
