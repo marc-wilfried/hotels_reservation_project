@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:app_1/calendar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -140,7 +141,17 @@ class _SearchSectionState extends State<SearchSection> {
                       ),
                     ],
                   ),
-                  child: IconButton(onPressed: (){}, icon: const Icon(Icons.search), color: Colors.white,),
+                  child: IconButton(
+                    onPressed: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const CalenderSection(),
+                        ),
+                      );
+                    }, 
+                    icon: const Icon(Icons.search), 
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
@@ -427,4 +438,7 @@ class _ViewHotelsSectionState extends State<ViewHotelsSection> {
       );
   }
 }
+
+
+
 
